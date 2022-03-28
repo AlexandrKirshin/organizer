@@ -8,3 +8,5 @@ mail, phoneNumber
     * Delete contact - /delete "searchField", "searchFieldValue"
     * Show list contact - /get
     * Find contact - /find "searchField", "searchFieldValue"
+
+* XML storage organizer template /organizer.xml

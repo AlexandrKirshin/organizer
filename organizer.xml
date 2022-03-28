@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<organizer>
+  <contact>
+    <tableNumber>2</tableNumber>
+    <name>Иванов И.И.</name>
+    <position>«Главный агроном»</position>
+    <organization>«Рога и копыта»</organization>
+    <mail>ivanov@hornsHooves.ru</mail>
+    <phoneList>
+      <phoneNumber>8-920-125-34-32</phoneNumber>
+      <phoneNumber>44-12-56</phoneNumber>
+    </phoneList>
+  </contact>
+</organizer>

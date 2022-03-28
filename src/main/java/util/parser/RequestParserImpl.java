@@ -52,8 +52,7 @@ public class RequestParserImpl implements RequestParser {
     }
     catch (ArrayIndexOutOfBoundsException e) {
       System.out.println(
-          "Maybe you forgot the comma between the data, or the data is incomplete, you need the search field and the "
-              + "value. Hint: /find <searchField>, <searchFieldValue> ");
+          "Maybe you forgot the comma between the data, or the data is incomplete. Hint: /find <searchField>, <searchFieldValue> ");
     }
 
     return findArgs;

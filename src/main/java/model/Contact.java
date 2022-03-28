@@ -29,6 +29,6 @@ public class Contact {
         ",\n Organization: '" + organization + '\'' +
         ",\n Mail: '" + mail + '\'' +
         ",\n Phone: " + phoneList +
-        '}';
+        "\n}";
   }
 }

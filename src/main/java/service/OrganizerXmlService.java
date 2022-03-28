@@ -80,7 +80,6 @@ public class OrganizerXmlService implements OrganizerService {
       }
     }
     catch (NullPointerException e) {
-      e.printStackTrace();
       System.out.println("The field: " + searchField + " does not exist");
     }
 
@@ -96,13 +95,17 @@ public class OrganizerXmlService implements OrganizerService {
 
     NodeList clients = document.getElementsByTagName(TAG_CONTACT);
     for (int i = 0; i < clients.getLength(); i++) {
-      Element element = (Element) clients.item(i);
-      if (element.getElementsByTagName(field)
-          .item(0)
-          .getTextContent()
-          .equals(fieldValue)) {
-        element.getParentNode()
-            .removeChild(element);
+      try {
+        Element element = (Element) clients.item(i);
+        if (element.getElementsByTagName(field)
+            .item(0)
+            .getTextContent()
+            .equals(fieldValue)) {
+          element.getParentNode()
+              .removeChild(element);
+        }
+      }
+      catch (NullPointerException e) {
       }
     }
 
@@ -168,7 +171,6 @@ public class OrganizerXmlService implements OrganizerService {
       return contactsList;
     }
     catch (NullPointerException e) {
-      System.out.println("The search field: " + searchField + " does not exist");
     }
     catch (ParserConfigurationException | SAXException | TransformerException | IOException e) {
       e.printStackTrace();
@@ -204,10 +206,18 @@ public class OrganizerXmlService implements OrganizerService {
 
     Element phoneList = document.createElement(TAG_PHONE_LIST);
 
-    for (String phone : client.getPhoneList()) {
+    if (client.getPhoneList()
+        .isEmpty()) {
       Element phoneNumber = document.createElement(TAG_PHONE_NUMBER);
-      phoneNumber.appendChild(document.createTextNode(phone));
+      phoneNumber.appendChild(document.createTextNode(" "));
       phoneList.appendChild(phoneNumber);
+    }
+    else {
+      for (String phone : client.getPhoneList()) {
+        Element phoneNumber = document.createElement(TAG_PHONE_NUMBER);
+        phoneNumber.appendChild(document.createTextNode(phone));
+        phoneList.appendChild(phoneNumber);
+      }
     }
 
     newClient.appendChild(phoneList);

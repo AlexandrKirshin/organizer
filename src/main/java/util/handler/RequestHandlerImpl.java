@@ -67,8 +67,6 @@ public class RequestHandlerImpl implements RequestHandler {
       String fieldValue = deleteArgs.get("fieldValue");
 
       xmlService.delete(field, fieldValue);
-
-      System.out.println("Entry deleted.");
     }
 
     if (request.startsWith("/get")) {
